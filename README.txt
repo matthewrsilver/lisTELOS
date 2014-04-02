@@ -47,11 +47,11 @@
  
 --------------------------------------------------------------------------------
 
-                                                                          
-                           lisTELOS Model  {v1.1} 
-                              August 7th, 2013                                 
+                                                                         
+                                    lisTELOS
+                                  April 2, 2014                                 
                             
-                                                                             
+                                                                                
   This code implements a neural model which is able to store sequences      
   of spatial cues, even those with items repeated at arbitrary ordinal      
   positions, and then produce a sequence of saccades to the cued locations  
@@ -113,7 +113,7 @@
 
   [ 3. NOTES ON TIMING ]
 
-  An odd choice early in implementation had to the repsesentation of time in 
+  An odd choice early in implementation led to the repsesentation of time in 
   hundreds of milliseconds, rather than seconds. This doesn't impact the 
   performance of the model -- or the accuracy with which it can resolve time --
   it just means that a different time unit is used when passing times as 
