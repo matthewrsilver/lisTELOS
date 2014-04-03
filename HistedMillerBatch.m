@@ -75,17 +75,17 @@ function [analysisData simResults] = HistedMillerBatch(varargin)
   %
   
   % Describe timing information
-  step                 = 0.001;             % Step size
-  duration             = 30;                % Simulation duration
-  beginCue             =  5;                % Onset time of first cue
-  stimInterval         =  9;                % Duration of stimulation
-  soas                 = [-2.0,    ...      % All possible SOAs
-                          -1.3,    ...
-                          -0.6,    ...
-                           0.0,    ...
-                           0.6,    ...
-                           1.3,    ...
-                           2.0];
+  step                 = 0.0001;            % Step size
+  duration             = 3.0;               % Simulation duration
+  beginCue             = 0.5;               % Onset time of first cue
+  stimInterval         = 0.9;               % Duration of stimulation
+  soas                 = [-0.20,    ...     % All possible SOAs
+                          -0.13,    ...
+                          -0.06,    ...
+                           0.00,    ...
+                           0.06,    ...
+                           0.13,    ...
+                           0.20];
   
   % Describe the shape of the network
   fieldSize            = [9,  9];           % Size of stimulus array
@@ -198,8 +198,8 @@ function [analysisData simResults] = HistedMillerBatch(varargin)
                 cueOn        = [0 beginCue-soa beginCue];
               end
                 
-              cueOff       = [20.0 10.0   10.0];
-              cueStrength  = [1    1      1];
+              cueOff       = [2.0 1.0 1.0];
+              cueStrength  = [1   1   1];
               
               % For each stimulation lcoation, cue pair, and SOA,
               % iterate through control and stimulation trials   
@@ -231,6 +231,9 @@ function [analysisData simResults] = HistedMillerBatch(varargin)
                               'StimOffTime',  19,                     ...
                               'StimStrength', stimPresent*.4,         ...
                               'StimLocation', stimLocation);
+                    
+                    % Correct outputs back into seconds
+                    sacTimes = sacTimes./10;
                     
                     disp(' ')
                     
@@ -266,7 +269,7 @@ function [analysisData simResults] = HistedMillerBatch(varargin)
   % Since these simulations tend to take so long, save a backup of the 
   % results to disk.  This ought to be toggled by the user, or at least have
   % a filename with a time stamp!
-  save backupData simResults
+  save('results/backupData.mat', 'simResults');
   
   % Provide the user with some information about running the analysis again at a 
   % later time, since simulations take so long that running the simulation again

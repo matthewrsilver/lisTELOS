@@ -20,15 +20,15 @@ function [fields data] = SaccadeTask
   addpath tools tools/signalFunctions
 
   % Initialize parameters    
-  duration     = 20;                            
-  stepSize     = 0.001;                         
+  duration     = 2.0;                            
+  stepSize     = 0.0001;                         
   useWM        = 0;
   cueLocations = [41 14];
-  cueOnTimes   = [0  5];
-  cueOffTimes  = [5  10];
+  cueOnTimes   = [0.0  0.5];
+  cueOffTimes  = [0.5  1.0];
   stimLocation = 41;
-  stimOnTime   = 20;
-  stimOffTime  = 20;
+  stimOnTime   = 2;
+  stimOffTime  = 2;
   stimStrength = 0;
   
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,11 +49,14 @@ function [fields data] = SaccadeTask
                     'StimOffTime',  stimOffTime,  ... 
                     'StimStrength', stimStrength);
 
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Find the time at which eye position moved to the target location
   SaccadeTime    = sacTimes(sacTargets == cueLocations(2));
   
   % Compute the latency
-  SaccadeLatency = (SaccadeTime - cueOffTimes(1))*100; 
+  SaccadeLatency = (SaccadeTime - cueOffTimes(1))*1000; 
 
   % Print latency
   disp(' ')
@@ -130,7 +133,7 @@ function [fields data] = SaccadeTask
   % LIP fixation cell (P^L_F)
   subplot(10, 2, 3)
   PLi = data(:, fields.PLi(3):fields.PLi(4));
-  plot([0:stepSize:duration]/10, PLi(1:keynum, fixLocation), 'k')
+  plot(0:stepSize:duration, PLi(1:keynum, fixLocation), 'k')
   ylabel('P^L_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -140,7 +143,7 @@ function [fields data] = SaccadeTask
   % LIP movement cell (P^L_T)
   subplot(10, 2, 5)
   PLi = data(:, fields.PLi(3):fields.PLi(4));
-  plot([0:stepSize:duration]/10, PLi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, PLi(1:keynum, cueLocation), 'k')
   ylabel('P^L_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -151,7 +154,7 @@ function [fields data] = SaccadeTask
 % include red ellipse about second peak?    
   subplot(10, 2, 7)
   PYi = data(:, fields.PYi(3):fields.PYi(4));
-  plot([0:stepSize:duration]/10, PYi(1:keynum, fixLocation), 'k')
+  plot(0:stepSize:duration, PYi(1:keynum, fixLocation), 'k')
   ylabel('P^Y_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -161,7 +164,7 @@ function [fields data] = SaccadeTask
   % 7a Onset Cell (Target) (P^Z_F)
   subplot(10, 2, 9)
   PYi = data(:, fields.PYi(3):fields.PYi(4));
-  plot([0:stepSize:duration]/10, PYi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, PYi(1:keynum, cueLocation), 'k')
   ylabel('P^Y_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -172,7 +175,7 @@ function [fields data] = SaccadeTask
 % include red ellipse around second ramp?
   subplot(10, 2, 11)
   Mir = data(:, fields.Mir(3):fields.Mir(4));
-  plot([0:stepSize:duration]/10, Mir(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, Mir(1:keynum, cueLocation), 'k')
   ylabel('M_{T1}')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -182,7 +185,7 @@ function [fields data] = SaccadeTask
   % SEF Direction Cell (S^Z_T)
   subplot(10, 2, 13)
   SOi = data(:, fields.SOi(3):fields.SOi(4));
-  plot([0:stepSize:duration]/10, SOi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, SOi(1:keynum, cueLocation), 'k')
   ylabel('S^O_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -192,7 +195,7 @@ function [fields data] = SaccadeTask
   % FEF Plan Cell (F^P_T)
   subplot(10, 2, 15)
   FPi = data(:, fields.FPi(3):fields.FPi(4));
-  plot([0:stepSize:duration]/10, FPi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, FPi(1:keynum, cueLocation), 'k')
   ylabel('F^P_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -202,7 +205,7 @@ function [fields data] = SaccadeTask
   % FEF Output Cell (F^O_T)
   subplot(10, 2, 17)
   FOi = data(:, fields.FOi(3):fields.FOi(4));
-  plot([0:stepSize:duration]/10, FOi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, FOi(1:keynum, cueLocation), 'k')
   ylabel('F^O_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -212,7 +215,7 @@ function [fields data] = SaccadeTask
   % FEF Post-saccadic Cell (F^X_T)
   subplot(10, 2, 19)
   FXi = data(:, fields.FXi(3):fields.FXi(4));
-  plot([0:stepSize:duration]/10, FXi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, FXi(1:keynum, cueLocation), 'k')
   ylabel('F^X_T')
   axis([0 2 0 1])
   set(gca, 'TickLength', [0; 0])
@@ -224,7 +227,7 @@ function [fields data] = SaccadeTask
   % Nigrothalamic SNr Saccade-Related Cell (B^S_T)
   subplot(10, 2, 4)
   BNi = data(:, fields.BNi(3):fields.BNi(4));
-  plot([0:stepSize:duration]/10, BNi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, BNi(1:keynum, cueLocation), 'k')
   ylabel('B^N_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -234,7 +237,7 @@ function [fields data] = SaccadeTask
   % Thalamus Plan Selection Cell (T_T)
   subplot(10, 2, 6)
   Ti = data(:, fields.Ti(3):fields.Ti(4));
-  plot([0:stepSize:duration]/10, Ti(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, Ti(1:keynum, cueLocation), 'k')
   ylabel('T_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -244,7 +247,7 @@ function [fields data] = SaccadeTask
   % Nigrocollicular Striatal Direct Fixation-Related Cell (G^D_F)
   subplot(10, 2, 8)
   GDi = data(:, fields.GDi(3):fields.GDi(4));
-  plot([0:stepSize:duration]/10, GDi(1:keynum, fixLocation), 'k')
+  plot(0:stepSize:duration, GDi(1:keynum, fixLocation), 'k')
   ylabel('G^D_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -254,7 +257,7 @@ function [fields data] = SaccadeTask
   % Nigrocollicular Striatal Direct Saccade-Related Cell (G^D_T)
   subplot(10, 2, 10)
   GDi = data(:, fields.GDi(3):fields.GDi(4));
-  plot([0:stepSize:duration]/10, GDi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, GDi(1:keynum, cueLocation), 'k')
   ylabel('G^D_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -264,7 +267,7 @@ function [fields data] = SaccadeTask
   % Nigrocollicular Striatal Indirect Fixation-Related Cell (G^I_F)
   subplot(10, 2, 12)
   GIi = data(:, fields.GIi(3):fields.GIi(4));
-  plot([0:stepSize:duration]/10, GIi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, GIi(1:keynum, cueLocation), 'k')
   ylabel('G^I_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -274,7 +277,7 @@ function [fields data] = SaccadeTask
   % Nigrocollicular SNr Fixation-Related Cell (G^S_F)
   subplot(10, 2, 14)
   GNi = data(:, fields.GNi(3):fields.GNi(4));
-  plot([0:stepSize:duration]/10, GNi(1:keynum, fixLocation), 'k')
+  plot(0:stepSize:duration, GNi(1:keynum, fixLocation), 'k')
   ylabel('G^N_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -284,7 +287,7 @@ function [fields data] = SaccadeTask
   % Nigrocollicular SNr Saccade-Related Cell (G^S_T)
   subplot(10, 2, 16)
   GNi = data(:, fields.GNi(3):fields.GNi(4));
-  plot([0:stepSize:duration]/10, GNi(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, GNi(1:keynum, cueLocation), 'k')
   ylabel('G^N_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -293,7 +296,7 @@ function [fields data] = SaccadeTask
   % Superior Colliculus Fixation Cell (C_F)
   subplot(10, 2, 18)
   Ci = data(:, fields.Ci(3):fields.Ci(4));
-  plot([0:stepSize:duration]/10, Ci(1:keynum, fixLocation), 'k')
+  plot(0:stepSize:duration, Ci(1:keynum, fixLocation), 'k')
   ylabel('C_F')
   axis([0 2 0 1])
   set(gca, 'XTick', [])
@@ -303,7 +306,7 @@ function [fields data] = SaccadeTask
   % Superior Colliculus Burst Cell (C_T)
   subplot(10, 2, 20)
   Ci = data(:, fields.Ci(3):fields.Ci(4));
-  plot([0:stepSize:duration]/10, Ci(1:keynum, cueLocation), 'k')
+  plot(0:stepSize:duration, Ci(1:keynum, cueLocation), 'k')
   ylabel('C_T')
   axis([0 2 0 1])
   set(gca, 'XTick', [0 .5 1 1.5 2])

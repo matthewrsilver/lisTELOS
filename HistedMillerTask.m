@@ -39,14 +39,14 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   %   It's nice to have these in variables for plotting and/or analysis later.
   %
   
-  stepSize     = 0.001;
-  duration     = 30.0;
+  stepSize     = 0.0001;
+  duration     = 3.0;
   cueLocations = [41   20   56];
-  cueOnTimes   = [0     5    6.3];
-  cueOffTimes  = [20   10   10];
+  cueOnTimes   = [0.0  0.5  0.63];
+  cueOffTimes  = [2.0  1.0  1.0];
   stimLocation = 21;
-  stimOnTime   = 10;
-  stimOffTime  = 19;
+  stimOnTime   = 1.0;
+  stimOffTime  = 1.9;
   
   
   %%  Run Control Simulation
@@ -70,7 +70,10 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
                     'StimOffTime',  stimOffTime,                            ...
                     'StimStrength', 0,                                      ...
                     'CountCells',   length(cueLocations));
-                                         
+                   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   
   %%  Plot Results
   %
@@ -141,7 +144,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % 7a Onset Cell (P^Y_i)
   subplot(10, 2, 3)
   PYi = data(:, fields.PYi(3):fields.PYi(4));
-  plot([0:stepSize:duration]/10, PYi(1:keynum, max(PYi)>0), 'k')
+  plot(0:stepSize:duration, PYi(1:keynum, max(PYi)>0), 'k')
   ylabel('P^Y_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -151,7 +154,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   %LIP (P^L_i)
   subplot(10, 2, 5)
   PLi = data(:, fields.PLi(3):fields.PLi(4));
-  plot([0:stepSize:duration]/10, PLi(1:keynum, max(PLi)>0), 'k')
+  plot(0:stepSize:duration, PLi(1:keynum, max(PLi)>0), 'k')
   ylabel('P^L_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -161,7 +164,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % dlPPC Spatial Working Memory Cell (M_ir)
   subplot(10, 2, [7 9])
   Mir = data(:, fields.Mir(3):fields.Mir(4));
-  plot([0:stepSize:duration]/10, Mir(1:keynum, max(Mir)>0), 'k')
+  plot(0:stepSize:duration, Mir(1:keynum, max(Mir)>0), 'k')
   ylabel('M_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -171,7 +174,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % SEF Direction Cell (S^Z_T)
   subplot(10, 2, 11)
   SYir = data(:, fields.SYir(3):fields.SYir(4));
-  plot([0:stepSize:duration]/10, SYir(1:keynum, max(SYir)>0), 'k')
+  plot(0:stepSize:duration, SYir(1:keynum, max(SYir)>0), 'k')
   ylabel('S^Y_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -181,7 +184,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % SEF Descending Habituative Gates
   subplot(10, 2, 13)
   ZDir = data(:, fields.ZDir(3):fields.ZDir(4));
-  plot([0:stepSize:duration]/10, ZDir(1:keynum, max(ZDir)>0), 'k')
+  plot(0:stepSize:duration, ZDir(1:keynum, max(ZDir)>0), 'k')
   ylabel('Z^D_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -191,7 +194,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % SEF Output Cell (S^O_i)
   subplot(10, 2, 15)
   SOi = data(:, fields.SOi(3):fields.SOi(4));
-  plot([0:stepSize:duration]/10, SOi(1:keynum, max(SOi)>0), 'k')
+  plot(0:stepSize:duration, SOi(1:keynum, max(SOi)>0), 'k')
   ylabel('S^O_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -201,7 +204,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % FEF Output Cell (F^O_i)
   subplot(10, 2, 17)
   FOi = data(:, fields.FOi(3):fields.FOi(4));
-  plot([0:stepSize:duration]/10, FOi(1:keynum, max(FOi)>0), 'k')
+  plot(0:stepSize:duration, FOi(1:keynum, max(FOi)>0), 'k')
   ylabel('F^O_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -211,7 +214,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % Superior Colliculus (C_F)
   subplot(10, 2, 19)
   Ci = data(:, fields.Ci(3):fields.Ci(4));
-  plot([0:stepSize:duration]/10, Ci(1:keynum, max(Ci)>0), 'k')
+  plot(0:stepSize:duration, Ci(1:keynum, max(Ci)>0), 'k')
   ylabel('C_i')
   axis([0 3 0 1])
   set(gca, 'TickLength', [0; 0])
@@ -244,6 +247,9 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
                     'StimOffTime',  stimOffTime,                            ...
                     'CountCells',   length(cueLocations));
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   
   %%  Plot Results
   %
@@ -255,7 +261,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % 7a Onset Cell (P^Y_i)
   subplot(10, 2, 4)
   PYi = data(:, fields.PYi(3):fields.PYi(4));
-  plot([0:stepSize:duration]/10, PYi(1:keynum, max(PYi)>0), 'k')
+  plot(0:stepSize:duration, PYi(1:keynum, max(PYi)>0), 'k')
   ylabel('P^Y_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -265,7 +271,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   %LIP (P^L_i)
   subplot(10, 2, 6)
   PLi = data(:, fields.PLi(3):fields.PLi(4));
-  plot([0:stepSize:duration]/10, PLi(1:keynum, max(PLi)>0), 'k')
+  plot(0:stepSize:duration, PLi(1:keynum, max(PLi)>0), 'k')
   ylabel('P^L_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -275,7 +281,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % dlPPC Spatial Working Memory Cell (M_ir)
   subplot(10, 2, [8, 10])
   Mir = data(:, fields.Mir(3):fields.Mir(4));
-  plot([0:stepSize:duration]/10, Mir(1:keynum, max(Mir)>0), 'k')
+  plot(0:stepSize:duration, Mir(1:keynum, max(Mir)>0), 'k')
   ylabel('M_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -286,9 +292,9 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   subplot(10, 2, 12)
   SYir = data(:, fields.SYir(3):fields.SYir(4));
   hold on
-  plot([0:stepSize:duration]/10, SYir(1:keynum, 1:50:end), 'k')
-  plot([0:stepSize:duration]/10, SYir(1:keynum, 20), 'k')
-  plot([0:stepSize:duration]/10, SYir(1:keynum, 137),'k')
+  plot(0:stepSize:duration, SYir(1:keynum, 1:50:end), 'k')
+  plot(0:stepSize:duration, SYir(1:keynum, 20), 'k')
+  plot(0:stepSize:duration, SYir(1:keynum, 137),'k')
   ylabel('S^Y_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -299,9 +305,9 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   subplot(10, 2, 14)
   ZDir = data(:, fields.ZDir(3):fields.ZDir(4));
   hold on
-  plot([0:stepSize:duration]/10, ZDir(1:keynum, 1:50:end), 'k')
-  plot([0:stepSize:duration]/10, ZDir(1:keynum, 20),  'k')
-  plot([0:stepSize:duration]/10, ZDir(1:keynum, 137), 'k')
+  plot(0:stepSize:duration, ZDir(1:keynum, 1:50:end), 'k')
+  plot(0:stepSize:duration, ZDir(1:keynum, 20),  'k')
+  plot(0:stepSize:duration, ZDir(1:keynum, 137), 'k')
   ylabel('Z^D_{ir}')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -312,9 +318,9 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   subplot(10, 2, 16)
   SOi = data(:, fields.SOi(3):fields.SOi(4));
   hold on
-  plot([0:stepSize:duration]/10, SOi(1:keynum, 1:10:end), 'k')
-  plot([0:stepSize:duration]/10, SOi(1:keynum, 20),  'k')
-  plot([0:stepSize:duration]/10, SOi(1:keynum, 56), 'k')
+  plot(0:stepSize:duration, SOi(1:keynum, 1:10:end), 'k')
+  plot(0:stepSize:duration, SOi(1:keynum, 20),  'k')
+  plot(0:stepSize:duration, SOi(1:keynum, 56), 'k')
   ylabel('S^O_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -324,7 +330,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % FEF Output Cell (F^O_i)
   subplot(10, 2, 18)
   FOi = data(:, fields.FOi(3):fields.FOi(4));
-  plot([0:stepSize:duration]/10, FOi(1:keynum, max(FOi)>0), 'k')
+  plot(0:stepSize:duration, FOi(1:keynum, max(FOi)>0), 'k')
   ylabel('F^O_i')
   axis([0 3 0 1])
   set(gca, 'XTick', [])
@@ -334,7 +340,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
   % Superior Colliculus (C_F)
   subplot(10, 2, 20)
   Ci = data(:, fields.Ci(3):fields.Ci(4));
-  plot([0:stepSize:duration]/10, Ci(1:keynum, max(Ci)>0), 'k')
+  plot(0:stepSize:duration, Ci(1:keynum, max(Ci)>0), 'k')
   ylabel('C_i')
   axis([0 3 0 1])
   set(gca, 'TickLength', [0; 0])

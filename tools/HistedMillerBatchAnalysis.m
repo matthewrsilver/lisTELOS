@@ -360,7 +360,7 @@ function analysisData = HistedMillerBatchAnalysis(simResults,            ...
       
       title(['Electrode Position = ' num2str(trialInfo{whichTrial}{2}.stimLocation) '; Cues = ' num2str(cuePairs(trialInfo{whichTrial}{2}.cuePair,:))])   
       
-      saveas(hndl, ['pos' num2str(trialInfo{whichTrial}{2}.stimLocation) '_cue' num2str(trialInfo{whichTrial}{2}.cuePair) '.eps'], 'epsc2')
+      saveas(hndl, ['results/pos' num2str(trialInfo{whichTrial}{2}.stimLocation) '_cue' num2str(trialInfo{whichTrial}{2}.cuePair) '.eps'], 'epsc2')
       
     end
     

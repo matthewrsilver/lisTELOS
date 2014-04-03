@@ -23,10 +23,10 @@ function YangOthersTask
   %   It's nice to have these in variables for plotting and/or analysis later.
   %
 
-  step                  = 0.001;  
-  duration              = 10;     
-  cueOnTimes            = [0  5];
-  cueOffTimes           = [5 10];
+  step                  = 0.0001;  
+  duration              = 1.0;     
+  cueOnTimes            = [0.0  0.5];
+  cueOffTimes           = [0.5  1.0];
 
   %%  Run Contralateral Control Simulations
   %
@@ -54,9 +54,12 @@ function YangOthersTask
 		  'CueOffTimes',  cueOffTimes,  ...
 		  'StimStrength', 0);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   contraControlStep    = floor(sacTimes(2)/step);
-  contraControlLatency = 100*(sacTimes(2)-5);
+  contraControlLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(contraControlLatency)]); 
@@ -90,9 +93,12 @@ function YangOthersTask
                     'CueOffTimes',  cueOffTimes,  ...
                     'StimStrength', 0);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   ipsiControlStep    = floor(sacTimes(2)/step);
-  ipsiControlLatency = 100*(sacTimes(2)-5);
+  ipsiControlLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(ipsiControlLatency)]); 
@@ -153,8 +159,8 @@ function YangOthersTask
   saccadeTarget         = 14;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 60;
-  stimOnTime            = 5.75;
-  stimOffTime           = 6.75;
+  stimOnTime            = 0.575;
+  stimOffTime           = 0.675;
   
   % Run Ipsilateral Delay (Ipsilateral Target)
   disp('Running the Ipsilateral Delay Example (Simulation 3 of 8)')
@@ -174,9 +180,12 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);
-  ipsiLatency = 100*(sacTimes(2)-5);
+  ipsiLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(ipsiLatency)]); 
@@ -192,8 +201,8 @@ function YangOthersTask
   saccadeTarget         = 68;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 60;
-  stimOnTime            = 5.75;
-  stimOffTime           = 6.75;
+  stimOnTime            = 0.575;
+  stimOffTime           = 0.675;
   
   disp('Running the Ipsilateral Delay Example (Simulation 4 of 8)')
   disp('**********************************************************')  
@@ -212,9 +221,13 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+
+  
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
-  contraLatency = 100*(sacTimes(2)-5);
+  contraLatency = 1000*(sacTimes(2)-.5);
   
   disp(' '); 
   disp(['Latency:        ' num2str(contraLatency)]); 
@@ -260,8 +273,8 @@ function YangOthersTask
   saccadeTarget         = 14;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 44;
-  stimOnTime            = 5.75;
-  stimOffTime           = 6.75;
+  stimOnTime            = 0.575;
+  stimOffTime           = 0.675;
   
   disp('Running the Bilateral Delay Example (Simulation 5 of 8)')
   disp('**********************************************************')  
@@ -280,9 +293,12 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);
-  ipsiLatency = 100*(sacTimes(2)-5);
+  ipsiLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(ipsiLatency)]);
@@ -298,8 +314,8 @@ function YangOthersTask
   saccadeTarget         = 68;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 44;
-  stimOnTime            = 5.75;
-  stimOffTime           = 6.75;
+  stimOnTime            = 0.575;
+  stimOffTime           = 0.675;
   
   disp('Running the Bilateral Delay Example (Simulation 6 of 8)')
   disp('**********************************************************')  
@@ -319,9 +335,12 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
-  contraLatency = 100*(sacTimes(2)-5);
+  contraLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(contraLatency)]);
@@ -365,8 +384,8 @@ function YangOthersTask
   saccadeTarget         = 14;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 14;
-  stimOnTime            = 4.75;
-  stimOffTime           = 5.75;
+  stimOnTime            = 0.475;
+  stimOffTime           = 0.575;
   
   disp('Running the Contralateral Facilitation Example (Simulation 7 of 8)')
   disp('**********************************************************')  
@@ -385,9 +404,12 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
 
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
-  contraLatency = 100*(sacTimes(2)-5);
+  contraLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(contraLatency)]);
@@ -403,8 +425,8 @@ function YangOthersTask
   saccadeTarget         = 68;
   cueLocations          = [41 saccadeTarget];
   stimLocation          = 14;
-  stimOnTime            = 4.75;
-  stimOffTime           = 5.75;
+  stimOnTime            = 0.475;
+  stimOffTime           = 0.575;
 
   disp('Running the Contralateral Facilitation Example (Simulation 8 of 8)')
   disp('**********************************************************')  
@@ -423,9 +445,12 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);
-  ipsiLatency = 100*(sacTimes(2)-5);
+  ipsiLatency = 1000*(sacTimes(2)-.5);
   
   disp(' ');
   disp(['Latency:        ' num2str(ipsiLatency)]);

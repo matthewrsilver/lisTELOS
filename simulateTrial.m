@@ -106,8 +106,8 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
   %
   
   % Default values describing the simulation itself:
-  step           = 0.001;              % step size
-  duration       = 20;                 % duration of simulation
+  step           = 0.0001;             % step size (s)
+  duration       = 2;                  % duration of simulation (s)
   verbose        = 0;                  % control the verbosity of system output
 
   % Default model state variables
@@ -124,15 +124,15 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
 
   % Default values describing the inputs to the system:
   cueLocations   = [41 38 14 38];      % positions of the cues
-  cueOnTimes     = [ 0  1  3  5];      % cue onsets
-  cueOffTimes    = [10  2  4  6];      % cue offsets
+  cueOnTimes     = [ 0 .1 .3 .5];      % cue onsets (s*10)
+  cueOffTimes    = [ 1 .2 .4 .6];      % cue offsets (s*10)
   cueStrengths   = [ 1  1  1  1];      % "salience" of cues
   inputDelay     = 0.5;                % ~visual response latency of PPC
 
   % Default values describing microstimulation:
   stimLocation   = 1;                  % position of the stimulating electrode 
-  stimOnTime     = 0;                  % time at which microstimulation starts
-  stimOffTime    = 0;                  % time at which microstimulation ends
+  stimOnTime     = 0;                  % time microstimulation starts (s*10)
+  stimOffTime    = 0;                  % time microstimulation ends (s*10)
   stimSpread     = 3;                  % the spread of the stimulation
   stimStrength   = 0.4;                % strength of microstimulation
   
@@ -195,6 +195,25 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
               
       end
   end
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % TEMPORARILY ADJUST ALL TIMING VALUES SUPPLIED
+  %
+  % This change allows users to specify stimulation timings in
+  % seconds, rather than the extremely clumsy 100s-of-milliseconds
+  % which is used within simulateTrial. Eventually, simulateTrial
+  % itself should be changed so it uses a resonable unit, but for
+  % now it's enough to correct input and output...
+  
+  step        = step*10;
+  duration    = duration*10;
+  cueOnTimes  = cueOnTimes*10;
+  cueOffTimes = cueOffTimes*10;
+  stimOnTime  = stimOnTime*10;
+  stimOffTime = stimOffTime*10;
+  
   
   
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

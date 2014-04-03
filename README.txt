@@ -84,7 +84,7 @@
 
   this runs the model through a single trial of the immediate serial
   recall (ISR) task.  The results of the simulation are passed back to 
-  the variable data, and the structure fields contains information useful 
+  the variable 'data', and the structure 'fields' contains information useful 
   for accessing the data.  Additional simulation information can be obtained
   through additional output arguments:
 
@@ -113,7 +113,7 @@
 
   [ 3. NOTES ON TIMING ]
 
-  An odd choice early in implementation led to the repsesentation of time in 
+  An odd choice early in implementation led to the representation of time in 
   hundreds of milliseconds, rather than seconds. This doesn't impact the 
   performance of the model -- or the accuracy with which it can resolve time --
   it just means that a different time unit is used when passing times as 
@@ -141,7 +141,7 @@
   paper exactly.  The functions available, and corresponding figures, are:
 
 
-     Driver                       Figure       Description
+     Task Function                Figure       Description
      -----------------------      -----------  -------------------------
      BenchmarkSaccadeTasks.m      Figure 5     Simulates four benchmark saccade
                                                tasks (Saccade, Overlap, Delayed

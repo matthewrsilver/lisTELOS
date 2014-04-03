@@ -27,15 +27,15 @@ function latencies = BenchmarkSaccadeTasks
   addpath tools tools/signalFunctions
 
   % Common task parameters
-  duration     = 20;
-  stepSize     = 0.001;
+  duration     = 2;
+  stepSize     = 0.0001;
   cueLocations = [41 14];
 
   
   % Stimulation parameters set to have no effect
   stimLocation = 41;
-  stimOnTime   = 20;
-  stimOffTime  = 20;
+  stimOnTime   = 2;
+  stimOffTime  = 2;
   stimStrength = 0;
   
   
@@ -46,8 +46,8 @@ function latencies = BenchmarkSaccadeTasks
   
   % Saccade task parameters
   useWM        = 0;
-  cueOnTimes   = [0  5];
-  cueOffTimes  = [5  10];
+  cueOnTimes   = [0.0  0.5];
+  cueOffTimes  = [0.5  1.0];
   
   % Run the task
   disp('Running the Saccade (Gap 0) Task (Simulation 1 of 4)')
@@ -64,11 +64,14 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOffTime',  stimOffTime,  ... 
                     'StimStrength', stimStrength);
 
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Find the time at which eye position moved to the target location
   SaccadeTime    = sacTimes(sacTargets == cueLocations(2));
   
   % Compute the latency
-  SaccadeLatency = (SaccadeTime - cueOffTimes(1))*100; 
+  SaccadeLatency = (SaccadeTime - cueOffTimes(1))*1000; 
   
   % Print latency
   disp(' ')
@@ -83,8 +86,8 @@ function latencies = BenchmarkSaccadeTasks
   
   % Overlap task parameters
   useWM        = 0;
-  cueOnTimes   = [0  5];
-  cueOffTimes  = [10 15];
+  cueOnTimes   = [0.0 0.5];
+  cueOffTimes  = [1.0 1.5];
   
   % Run the task
   disp('Running the Overlap Task (Simulation 2 of 4)')
@@ -100,12 +103,15 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
+
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
   
   % Find the time at which eye position moved to the target location
   OverlapTime    = sacTimes(sacTargets == cueLocations(2));
   
   % Compute the latency
-  OverlapLatency = (OverlapTime - cueOffTimes(1))*100; 
+  OverlapLatency = (OverlapTime - cueOffTimes(1))*1000; 
 
   % Print latency
   disp(' ')
@@ -120,8 +126,8 @@ function latencies = BenchmarkSaccadeTasks
   
   % Gap task parameters
   useWM        = 0;
-  cueOnTimes   = [0  10];
-  cueOffTimes  = [5  15];
+  cueOnTimes   = [0.0  1.0];
+  cueOffTimes  = [0.5  1.5];
   
   % Run the task
   disp('Running the Gap 500 Task (Simulation 3 of 4)')
@@ -138,11 +144,14 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
   
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Find the time at which eye position moved to the target location
   GapTime    = sacTimes(sacTargets == cueLocations(2));
   
   % Compute the latency
-  GapLatency = (GapTime - cueOnTimes(2))*100; 
+  GapLatency = (GapTime - cueOnTimes(2))*1000; 
   
   % Print latency
   disp(' ')
@@ -157,8 +166,8 @@ function latencies = BenchmarkSaccadeTasks
   
   % Delayed saccade task parameters
   useWM        = 1;
-  cueOnTimes   = [0  5];
-  cueOffTimes  = [15 10];
+  cueOnTimes   = [0.0 0.5];
+  cueOffTimes  = [1.5 1.0];
   
   % Run the task
   disp('Running the Delayed Saccade Task (Simulation 4 of 4)')
@@ -175,11 +184,14 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
 
+  % Correct outputs back into seconds
+  sacTimes = sacTimes./10;
+  
   % Find the time at which eye position moved to the target location
   DelayedTime    = sacTimes(sacTargets == cueLocations(2));
   
   % Compute the latency
-  DelayedLatency = (DelayedTime - cueOffTimes(1))*100; 
+  DelayedLatency = (DelayedTime - cueOffTimes(1))*1000; 
   
   % Print latency
   disp(' ')
