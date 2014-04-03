@@ -53,10 +53,7 @@ function YangOthersTask
 		  'CueOnTimes',   cueOnTimes,   ...
 		  'CueOffTimes',  cueOffTimes,  ...
 		  'StimStrength', 0);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
+    
   % Store latency information and display
   contraControlStep    = floor(sacTimes(2)/step);
   contraControlLatency = 1000*(sacTimes(2)-.5);
@@ -92,9 +89,6 @@ function YangOthersTask
                     'CueOnTimes',   cueOnTimes,   ...
                     'CueOffTimes',  cueOffTimes,  ...
                     'StimStrength', 0);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
   
   % Store latency information and display
   ipsiControlStep    = floor(sacTimes(2)/step);
@@ -180,9 +174,6 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);
   ipsiLatency = 1000*(sacTimes(2)-.5);
@@ -220,11 +211,7 @@ function YangOthersTask
                     'StimLocation', stimLocation, ...
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-
-  
+    
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
   contraLatency = 1000*(sacTimes(2)-.5);
@@ -293,9 +280,6 @@ function YangOthersTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
   
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);
   ipsiLatency = 1000*(sacTimes(2)-.5);
@@ -334,10 +318,7 @@ function YangOthersTask
                     'StimLocation', stimLocation, ...
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
+    
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
   contraLatency = 1000*(sacTimes(2)-.5);
@@ -403,9 +384,6 @@ function YangOthersTask
                     'StimLocation', stimLocation, ...
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
-
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
   
   % Store latency information and display
   contraStep    = floor(sacTimes(2)/step);
@@ -444,9 +422,6 @@ function YangOthersTask
                     'StimLocation', stimLocation, ...
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
   
   % Store latency information and display
   ipsiStep    = floor(sacTimes(2)/step);

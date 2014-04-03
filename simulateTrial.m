@@ -13,15 +13,15 @@
 %     /===========================================================\            %
 %     | Property Name     | Description                           |            %
 %     +===================+=======================================+            %
-%     | Step              | Step size used by ODE solver.         |            %
+%     | Step              | Step size (fixed) used by ODE solver. |            %
 %     +-------------------+---------------------------------------+            %
-%     | Duration          | Duration of trial, in 100s of ms.     |            %
+%     | Duration          | Duration of trial, in seconds.        |            %
 %     +-------------------+---------------------------------------+            %
 %     | Verbose           | Toggle messages to command line.      |            %
 %     +-------------------+---------------------------------------+            %
 %     | CountCells        | Number of counting cells in the       |            %
-%     |                   | model; should always greater than or  |            %
-%     |                   | equal to the number of stimuli        |            %
+%     |                   | model; should always be greater than  |            %
+%     |                   | or equal to the number of stimuli     |            %
 %     |                   | being presented, including the        |            %
 %     |                   | fixation point.                       |            %
 %     +-------------------+---------------------------------------+            %
@@ -63,14 +63,14 @@
 %     |                   | specifies four locations.             |            %
 %     +-------------------+---------------------------------------+            %
 %     | CueOnTimes        | The time from the beginning of the    |            %
-%     |                   | simulation (100s of ms) at which each |            %
+%     |                   | simulation (seconds) at which each    |            %
 %     |                   | cue in CueLocations is presented.     |            %
 %     |                   | A vector of the same length as        |            %
 %     |                   | CueLocations should be used.  For     |            %
 %     |                   | example: [0 1 3 5]                    |            %
 %     +-------------------+---------------------------------------+            %
 %     | CueOffTimes       | The time from the beginning of the    |            %
-%     |                   | simulation (100s of ms) at which each |            %
+%     |                   | simulation (seconds) at which each    |            %
 %     |                   | cue in CueLocations is presented.     |            %
 %     +-------------------+---------------------------------------+            %
 %     | StimLocation      | The position of the stimulation site. |            %
@@ -78,11 +78,11 @@
 %     |                   | of microstimulation is centered here. |            %
 %     +-------------------+---------------------------------------+            %
 %     | StimOnTime        | The time from the beginning of the    |            %
-%     |                   | simulation (100s of ms) at which      |            %
+%     |                   | simulation (seconds) at which         |            %
 %     |                   | stimulation begins.                   |            %
 %     +-------------------+---------------------------------------+            %
 %     | StimOffTime       | The time from the beginning of the    |            %
-%     |                   | simulation (100s of ms) at which      |            %
+%     |                   | simulation (seconds) at which         |            %
 %     |                   | stimulation ends.                     |            %
 %     +-------------------+---------------------------------------+            %
 %     | StimSpread        | The standard deviation of the         |            %
@@ -497,11 +497,12 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
         % We have a saccade!!
         initTime  = t;
         lastSac   = t;
-        sacTimes  = [sacTimes t];
+        sacTimes  = [sacTimes t/10];
         sacTargs  = [sacTargs newPos]; 
         inSaccade = 1;
         eyePos    = newPos;
-        disp(['Saccade initiated to ' num2str(eyePos) ' at t=' num2str(initTime)])
+        disp(['Saccade initiated to ' num2str(eyePos) ...
+              ' at t=' num2str(initTime/10) ' seconds.'])
         
         % Evaluate the saccade...
         if I(fixLocation)==1

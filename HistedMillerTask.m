@@ -70,11 +70,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
                     'StimOffTime',  stimOffTime,                            ...
                     'StimStrength', 0,                                      ...
                     'CountCells',   length(cueLocations));
-                   
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
-  
+                     
   %%  Plot Results
   %
   %   Using the values returned above, plot key model traces to show how
@@ -246,11 +242,7 @@ function [fields data sacTimes sacTargs] = HistedMillerTask
                     'StimOnTime',   stimOnTime,                             ...
                     'StimOffTime',  stimOffTime,                            ...
                     'CountCells',   length(cueLocations));
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
-  
+    
   %%  Plot Results
   %
   %   Using the values returned above, plot key model traces to show how

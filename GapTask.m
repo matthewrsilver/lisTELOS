@@ -53,10 +53,7 @@ function [fields data] = GapTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
+    
   % Find the time at which eye position moved to the target location
   GapTime    = sacTimes(sacTargets == cueLocations(2));
   

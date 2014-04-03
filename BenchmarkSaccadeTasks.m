@@ -36,8 +36,7 @@ function latencies = BenchmarkSaccadeTasks
   stimLocation = 41;
   stimOnTime   = 2;
   stimOffTime  = 2;
-  stimStrength = 0;
-  
+  stimStrength = 0;  
   
   
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,9 +63,6 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOffTime',  stimOffTime,  ... 
                     'StimStrength', stimStrength);
 
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
   % Find the time at which eye position moved to the target location
   SaccadeTime    = sacTimes(sacTargets == cueLocations(2));
   
@@ -104,9 +100,6 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
 
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
   % Find the time at which eye position moved to the target location
   OverlapTime    = sacTimes(sacTargets == cueLocations(2));
   
@@ -143,10 +136,7 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
-  
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
-  
+    
   % Find the time at which eye position moved to the target location
   GapTime    = sacTimes(sacTargets == cueLocations(2));
   
@@ -183,9 +173,6 @@ function latencies = BenchmarkSaccadeTasks
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
-
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
   
   % Find the time at which eye position moved to the target location
   DelayedTime    = sacTimes(sacTargets == cueLocations(2));

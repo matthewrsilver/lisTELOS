@@ -47,9 +47,6 @@ function [fields data] = DelayedSaccadeTask
                     'StimOnTime',   stimOnTime,   ...
                     'StimOffTime',  stimOffTime,  ...
                     'StimStrength', stimStrength);
-
-  % Correct outputs back into seconds
-  sacTimes = sacTimes./10;
   
   % Find the time at which eye position moved to the target location
   DelayedTime    = sacTimes(sacTargets == cueLocations(2));
