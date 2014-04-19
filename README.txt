@@ -49,14 +49,18 @@
 
                                                                          
                                     lisTELOS
-                                  April 2, 2014                                 
                             
                                                                                 
   This code implements a neural model which is able to store sequences      
   of spatial cues, even those with items repeated at arbitrary ordinal      
   positions, and then produce a sequence of saccades to the cued locations  
   once a central fixation point is extinguished.                            
-                                                                            
+                               
+  In order to perform this and related tasks, the model exhibits a number 
+  of more fundamental properties including the ability to suppress reactive 
+  saccades toward cues presented during fixation, and the reproduction of 
+  reaction time data on benchmark saccade tasks (gap & overlap task, etc.). 
+                                            
   Model simulations reproduce electrophysiological, psychophysical and      
   behavioral data by successfully solving a number of oculomotor tasks.     
   Particular emphasis is placed on the reproduction of data collected when  
@@ -68,17 +72,18 @@
                                      
   [ 1. REQUIREMENTS AND INSTALLATION ]
 
-  This code requires the base installation of MATLAB.  Unzip the package 
-  which will be called something like lisTELOS-1.* and place the directory 
-  tree somewhere you use to execute code.
+  This code requires the only base installation of MATLAB. It has only been
+  tested on Linux systems, but the core model should work across platforms.
+  Tweaks to ensure compatibility with Windows and Mac will hopefully come 
+  soon.  
 
-  The package contains m-files ready to run.  To run the code: 
-
+  No "installation" is necessary; simply put the lisTELOS folder somewhere 
+  on your computer.  
 
   [ 2. FIRST RUN(S) ]
 
-  Within MATLAB, navigate to the location of the 'installation' directory 
-  called lisTELOS-v1.* and type:
+  Within MATLAB, navigate to the location of the 'installation' directory, 
+  called lisTELOS, and type:
 
     >> [fields data] = simulateTrial;
 
