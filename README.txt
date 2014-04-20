@@ -103,12 +103,12 @@
   comments in simulateTrial for details).  As an example, the simulation 
   step size can be specified with the following command:
 
-    >> [fields data] = simulateTrial('Step', 0.001);
+    >> [fields data] = simulateTrial('Step', 0.0001);
 
   To specify multiple values, use the standard method for specifying multiple
   arguments in MATLAB functions.  For example:
 
-    >> [fields data] = simulateTrial('Step', 0.001, 'StimLocation', 23); 
+    >> [fields data] = simulateTrial('Step', 0.0001, 'StimLocation', 23); 
 
   Through these arguments (particularly the more powerful values such as
   CueLocations, CueOnTimes, and CueOffTimes), the structure of most basic
@@ -118,23 +118,25 @@
 
   [ 3. NOTES ON TIMING ]
 
-  An odd choice early in implementation led to the representation of time in 
-  hundreds of milliseconds, rather than seconds. This doesn't impact the 
+  When using the model, express timing-related parameters in seconds. 
+
+  But read on...  
+
+  A choice early in implementation led to the representation of simulation time 
+  in hundreds of milliseconds, rather than seconds. This doesn't impact the 
   performance of the model -- or the accuracy with which it can resolve time --
-  it just means that a different time unit is used when passing times as 
-  arguments, or when dealing with simulation results.
+  it just means that a different time unit is used when performing simulations.
 
-  So whenever entering times (cue onset times, cue offset times, simulation
-  duration, stimulation times, etc.), the values are entered in hundreds of 
-  milliseconds: 
+  In simulations included in this package (see below) all time-related inputs 
+  to the model are expressed in seconds. Any new simulations should also 
+  express time in seconds. The first steps taken by the simulateTrial function
+  convert times to the simulation units, and the last lines convert all times
+  back to seconds. In addition, all text printed to the matlab console during
+  simulations are expressed in seconds. 
 
-     If you want a cue to appear at t = 1 second, the cue onset time is 10.  
-     A simulation that lasts three seconds has a duration of 30.  
-     If a cue is present for 500 milliseconds, the cue duration is 5. 
-
-  You'll see this reflected in the functions used to run key simulations below.
-  This can and hopefully will be fixed in the future. But for now, it seems 
-  best to keep the model as is was when the paper was written. 
+  All this is to say: from the user's perspective, the model deals with time 
+  in seconds. Any modification to the model itself should be done with care, 
+  and with full knowledge of the shift in units.  
 
 
   [ 4. KEY SIMULATIONS ]
