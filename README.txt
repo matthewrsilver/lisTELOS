@@ -72,10 +72,11 @@
                                      
   [ 1. REQUIREMENTS AND INSTALLATION ]
 
-  This code requires the only base installation of MATLAB. It has only been
-  tested on Linux systems, but the core model should work across platforms.
-  Tweaks to ensure compatibility with Windows and Mac will hopefully come 
-  soon.  
+  This code requires the only base installation of MATLAB. It has been fully
+  tested on Linux systems, on which all simulations run smoothly. Tests in 
+  Windows systems seem to have been fine (but you never know) . Generally, 
+  the core model should work across platforms.  Further tests are under way
+  to ensure fulle compatibility with Windows.
 
   No "installation" is necessary; simply put the lisTELOS folder somewhere 
   on your computer.  
