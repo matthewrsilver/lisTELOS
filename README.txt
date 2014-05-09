@@ -13,7 +13,7 @@
                        
 
                                                          
-                               Boston University                                                             
+                               Boston University
 		          Center for Adaptive Systems
 		   Department of Cognitive and Neural Systems
                    
