@@ -113,12 +113,7 @@ To reproduce model simulations described in the paper, one can execute one of se
 
 
 | Task Function                 | Figure      |  Description                       |
-| ----------------------------- | ----------- | ---------------------------------- |
-|  BenchmarkSaccadeTasks.m      | Figure 5    | Simulates four benchmark saccade   |
-|                               |             | tasks (Saccade, Overlap, Delayed   |
-|                               |             | Saccade, and Gap 500) and plots    |
-|                               |             | stimuli and eye movements for      |
-|                               |             | each.                              |
+|  BenchmarkSaccadeTasks.m      | Figure 5    | Simulates four benchmark saccade tasks (Saccade, Overlap, Delayed Saccade, and Gap 500) and plots stimuli and eye movements for each. |
 | ----------------------------- | ----------- | ---------------------------------- |
 | SaccadeTask.m                 | Figure 6    | Simulates the Saccade (Gap 0)      | 
 |                               |             | task and plots selected cell       |
