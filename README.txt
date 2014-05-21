@@ -49,8 +49,6 @@
 
                                                                          
                                     lisTELOS
-                         
-  ![lisTELOS model](/figures/lisTELOS_model_diagram.jpg)
 
                                                                                 
   This code implements a neural model which is able to store sequences      
