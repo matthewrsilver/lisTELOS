@@ -1,53 +1,3 @@
-
-
-               A NEURAL MODEL OF SEQUENTIAL MOVEMENT PLANNING AND                
-            CONTROL OF EYE MOVEMENTS: ITEM-ORDER-RANK WORKING MEMORY 
-             AND SACCADE SELECTION BY THE SUPPLEMENTARY EYE FIELDS                  
-
-	                Neural Networks 26 (2012) 29-58
-                                                    
-
-                               Matthew R. Silver,      
-                       Stephen Grossberg, Daniel Bullock, 
-                       Mark H. Histed, and Earl K. Miller
-                       
-
-                                                         
-                               Boston University
-		          Center for Adaptive Systems
-		   Department of Cognitive and Neural Systems
-                   
-                     Massachusetts Institute of Technology
-		 The Picower Institute for Learning and Memory                 
-                   Department of Brain and Cognitive Sciences
-                   
-		             Harvard Medical School
-		           Department of Neurobiology
-
-
-                                                             
-                        Center of Excellence for Learning                        
-                                       in                                        
-                        Education, Science and Technology                       
-                                                                                
-                                                                                
-                                                                                
-                                                                                
-        ###      #########   ###         #########      ###      #########      
-      #######    #########   ###         #########    #######    #########      
-     ###   ###   ###         #!!         !!!         ###   ###      ###         
-     ###         ###         !!!         !!!         !##            ###         
-     ###         #!!!!!      !!!         !!!!!!       !!!#          ###         
-     ###         !!!!!!      !!!         !!!!!!          !!##       ###         
-     ###         !!!         !!!         !!!               !!#      ###         
-     ###   !!!   !!!         !!!         !!!         !!!   !!!      ###         
-      ####!!!    !!!!!!!!!   !!!!!!!!!   !!!!!!!!!    !!!!!!!       !##         
-        #!!      !!!!!!!!!   !!!!!!!!!   !!!!!!!!!      !!!         !!#         
-                                                                                
- 
---------------------------------------------------------------------------------
-
-                                                                         
 lisTELOS
 ========
                          
@@ -59,13 +9,13 @@ In order to perform this and related tasks, the model exhibits a number of more 
                                             
 Model simulations reproduce electrophysiological, psychophysical and behavioral data by successfully solving a number of oculomotor tasks. Particular emphasis is placed on the reproduction of data collected when the supplementary eye field is perturbed by cortical microstimulation. We hope to offer insight into the role of the supplementary eye field during the production of remembered saccade sequences by ensuring that the model's performance adheres to data from several manipulations of the region.                                                               
              
-### Requirements and Installation
+### Requirements and installation
 
 This code requires the only base installation of MATLAB. It has been fully tested on Linux systems, on which all simulations run smoothly. Tests in Windows systems seem to have been fine (but you never know) . Generally, the core model should work across platforms.  Further tests are under way to ensure fulle compatibility with Windows.
 
 No "installation" is necessary; simply put the lisTELOS folder somewhere on your computer.  
 
-### First run(s)
+### First runs
 
 Within MATLAB, navigate to the location of the 'installation' directory, called lisTELOS, and type:
 
