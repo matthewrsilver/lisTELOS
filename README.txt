@@ -49,7 +49,9 @@
 
                                                                          
                                     lisTELOS
-                            
+                         
+  ![lisTELOS model](/images/lisTELOS_model_diagram.jpg)
+
                                                                                 
   This code implements a neural model which is able to store sequences      
   of spatial cues, even those with items repeated at arbitrary ordinal      
