@@ -112,7 +112,7 @@ All this is to say: from the user's perspective, the model deals with time in se
 To reproduce model simulations described in the paper, one can execute one of several task functions included in this package.  These functions use the simulateTrial function, specifying task parameters as arguments, and then plot the results.  In many cases, these functions reproduce figures from the paper exactly.  The functions available, and corresponding figures, are:
 
 
-| Task Function                 | Figure      |  Description                       |
+| Task Function                 | Figure Number     |  Description                       |
 | ----------------------------- | ----------- | ---------------------------------- |
 |  BenchmarkSaccadeTasks.m      | Figure 5    | Simulates four benchmark saccade tasks (Saccade, Overlap, Delayed Saccade, and Gap 500) and plots stimuli and eye movements for each. |
 | SaccadeTask.m                 | Figure 6    | Simulates the Saccade (Gap 0) task and plots selected cell traces. |
@@ -120,14 +120,12 @@ To reproduce model simulations described in the paper, one can execute one of se
 | DelayedSaccadeTask.m          | Figure 8    | Simulates the Delayed Saccade task and plots selected cell traces. |
 | GapTask.m                     | Figure 9    | Simulates the Gap 500 task and plots selected cell traces. |
 | ImmediateSerialRecallTask.m   | Figure 11   | Simulates the Immediate Serial Recall (ISR) task with a four item sequence (containing a repeated item) and plots selected cell traces. |
-| HistedMillerTask.m            | Figure 13   | Simulates the modified double saccade task used by Histed and Miller (2006) to show that SEF microstimulation can reorder a remembered spatial sequence. Selected cell traces are plotted. || HistedMillerBatch.m           | Figure 12, Figure 15 | Simulates a batch of trials from the Histed and Miller (2006) double saccade task. This function produces data used to create Figure 12. Because of stochasticity in the simulations, results may vary significantly between simulations. Because this function takes long, the results are saved in a file called backupData.mat before plotting. Plots corresponding to Figure 15 are saved as eps files, and not drawn on the screen. This speeds things up when many figures are to be generated. |
+| HistedMillerTask.m            | Figure 13   | Simulates the modified double saccade task used by Histed and Miller (2006) to show that SEF microstimulation can reorder a remembered spatial sequence. Selected cell traces are plotted. |
+|HistedMillerBatch.m            | Figure 12, Figure 15 | Simulates a batch of trials from the Histed and Miller (2006) double saccade task. This function produces data used to create Figure 12. Because of stochasticity in the simulations, results may vary significantly between simulations. Because this function takes long, the results are saved in a file called backupData.mat before plotting. Plots corresponding to Figure 15 are saved as eps files, and not drawn on the screen. This speeds things up when many figures are to be generated. |
 | YangOthersTask.m              | Figure 16   | Simulates the task used by Yang, Heinen, and Missal (2008) to show that SEF microstimulation can, under some conditions, change saccade latency. |
 
 
-  If additional simulations are desired, it is highly recommended that users
-  do so in the same fashion as the above functions.  For help representing a  
-  task in a way that the simulateTrial function can accept, please do not 
-  hesitate to contact Matt Silver:
+If additional simulations are desired, it is highly recommended that users do so in the same fashion as the above functions.  For help representing a task in a way that the simulateTrial function can accept, please do not hesitate to contact Matt Silver:
 
 
 ### Contact
