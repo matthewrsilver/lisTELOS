@@ -1,7 +1,7 @@
 lisTELOS
 ========
                          
-![lisTELOS model](/doc/lisTELOS_model_diagram.jpg)
+![lisTELOS model](/doc/lisTELOS.jpg)
                                                                                 
 This code implements a neural model which is able to store sequences of spatial cues, even those with items repeated at arbitrary ordinal positions, and then produce a sequence of saccades to the cued locations once a central fixation point is extinguished.
                                
