@@ -11,7 +11,7 @@ Model simulations reproduce electrophysiological, psychophysical and behavioral 
              
 ### Requirements and installation
 
-This code requires the only base installation of MATLAB. It has been fully tested on Linux systems, on which all simulations run smoothly. Tests in Windows systems seem to have been fine (but you never know) . Generally, the core model should work across platforms.  Further tests are under way to ensure fulle compatibility with Windows.
+This code requires the only base installation of MATLAB. It has been fully tested on Linux systems, on which all simulations run smoothly. Tests in Windows systems seem to have been fine (but you never know) . Generally, the core model should work across platforms.  Further tests are under way to ensure full compatibility with Windows.
 
 No "installation" is necessary; simply put the lisTELOS folder somewhere on your computer.  
 
