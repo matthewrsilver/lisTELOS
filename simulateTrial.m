@@ -112,7 +112,7 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
 
   % Default model state variables
   eyePos         = 1;                  % position of eye updated throughout
-  lastSac        = -1.00;              % 
+  lastSac        = -1.00;              % time of last saccade (-1.00 for none)
   inSaccade      = 0;                  % used for evaluation of saccades
   
   % Default values describing the shape of the system:
@@ -242,7 +242,7 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
   % Construct a representation of stimulation through time
   kernelSize = max(fieldSize)*3;
       
-  % First, use fspecial to create a nice gaussian.  The convolution
+  % First, use fspecial to create a nice Gaussian.  The convolution
   % kernel that I'm producing with fspecial is large so that the
   % kernel can be easily overlaid on SEF with its peak at any node in
   % SEF.  It is best to pick an odd number so that there is only one
@@ -254,7 +254,7 @@ function [fields data sacTimes sacTargs] = simulateTrial(varargin)
   r           = max(r);                      % r = the row of max
   
   % Select the inputSizeVertical x inputSizeHorizontal window around
-  % the center of the gaussian that places the center at the
+  % the center of the Gaussian that places the center at the
   % appropriate stimulation site.
   kern = h( r - mod(stimLocation-1,fieldSize(1)):                   ...
             r - mod(stimLocation-1,fieldSize(1)) + fieldSize(1)-1,  ...
