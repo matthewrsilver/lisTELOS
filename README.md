@@ -80,5 +80,5 @@ If additional simulations are desired, it is highly recommended that users do so
 
 ### Contact
                                                                            
-Thanks for taking the time to examine this model!  Please write with any comments, concerns, criticisms, compliments, corrections, et cetera, to silverm@mit.edu                                                     
+Thanks for taking the time to examine this model!  Please write with any comments, concerns, criticisms, compliments, corrections, et cetera, to matt.r.silver@mit.edu
                                                                             
