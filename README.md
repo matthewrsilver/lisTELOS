@@ -8,7 +8,9 @@ This code implements a neural model which is able to store sequences of spatial 
 In order to perform this and related tasks, the model exhibits a number of more fundamental properties including the ability to suppress reactive saccades toward cues presented during fixation, and the reproduction of reaction time data on benchmark saccade tasks (gap & overlap task, etc.).
                                             
 Model simulations reproduce electrophysiological, psychophysical and behavioral data by successfully solving a number of oculomotor tasks. Particular emphasis is placed on the reproduction of data collected when the supplementary eye field is perturbed by cortical microstimulation. We hope to offer insight into the role of the supplementary eye field during the production of remembered saccade sequences by ensuring that the model's performance adheres to data from several manipulations of the region.                                                               
-             
+
+The project is hosted [here](https://github.com/matthewrsilver/lisTELOS.git) as well.
+
 ### Requirements and installation
 
 This code requires the only base installation of MATLAB. It has been fully tested on Linux systems, on which all simulations run smoothly. Tests in Windows systems seem to have been fine (but you never know) . Generally, the core model should work across platforms.  Further tests are under way to ensure full compatibility with Windows.
@@ -80,5 +82,5 @@ If additional simulations are desired, it is highly recommended that users do so
 
 ### Contact
                                                                            
-Thanks for taking the time to examine this model!  Please write with any comments, concerns, criticisms, compliments, corrections, et cetera, to matt.r.silver@gmail.com
+Thanks for taking the time to examine this model!  Please write with any comments, concerns, criticisms, compliments, corrections, et cetera, to matt.r.silver [at] gmail.com
                                                                             
