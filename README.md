@@ -9,7 +9,7 @@ In order to perform this and related tasks, the model exhibits a number of more 
                                             
 Model simulations reproduce electrophysiological, psychophysical and behavioral data by successfully solving a number of oculomotor tasks. Particular emphasis is placed on the reproduction of data collected when the supplementary eye field is perturbed by cortical microstimulation. We hope to offer insight into the role of the supplementary eye field during the production of remembered saccade sequences by ensuring that the model's performance adheres to data from several manipulations of the region.                                                               
 
-The project is hosted [here](https://github.com/matthewrsilver/lisTELOS.git) as well.
+The project is hosted [here](http://matthewrsilver.github.io/lisTELOS/) as well.
 
 ### Requirements and installation
 
